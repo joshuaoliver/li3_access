@@ -7,7 +7,7 @@ use lithium\util\Set;
 /**
  * undocumented class
  */
-class Rules extends \lithium\core\Object {
+class Rules extends \lithium\core\ObjectDeprecated {
 
 	/**
 	 * Rules are named closures that must either return `true` or `false`.

@@ -2,7 +2,7 @@
 
 namespace li3_access\tests\mocks\extensions\adapter\auth;
 
-class MockAuthAdapter extends \lithium\core\Object {
+class MockAuthAdapter extends \lithium\core\ObjectDeprecated {
 
 	public function check($credentials, array $options = array()) {
 		$granted = false;
