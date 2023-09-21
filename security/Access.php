@@ -10,6 +10,7 @@
 namespace li3_access\security;
 
 use lithium\core\ConfigException;
+use lithium\aop\Filters;
 
 /**
  * The `Access` class provides...
@@ -102,7 +103,7 @@ class Access extends \lithium\core\Adaptable {
 			);
 		};
 		$params = compact('user', 'params', 'options');
-		return static::_filter(__FUNCTION__, $params, $filter, (array) $config['filters']);
+		return Filters::run($this, __FUNCTION__, $params, $filter, (array) $config['filters']);
 	}
 }
 
