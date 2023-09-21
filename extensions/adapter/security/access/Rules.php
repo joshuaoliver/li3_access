@@ -3,11 +3,12 @@
 namespace li3_access\extensions\adapter\security\access;
 
 use lithium\util\Set;
+use lithium\core\AutoConfigurable;
 
 /**
  * undocumented class
  */
-class Rules extends \lithium\core\ObjectDeprecated {
+class Rules {
 
 	/**
 	 * Rules are named closures that must either return `true` or `false`.
@@ -51,7 +52,8 @@ class Rules extends \lithium\core\ObjectDeprecated {
 			'allowAny' => false,
 			'user' => function() {}
 		);
-		parent::__construct($config + $defaults);
+		$this->_config = $config + $defaults;
+		$this->_autoInit($config);
 	}
 
 	/**
@@ -60,7 +62,7 @@ class Rules extends \lithium\core\ObjectDeprecated {
 	 * @return void
 	 */
 	protected function _init() {
-		parent::_init();
+		
 
 		$this->_rules += array(
 			'allowAll' => function() {
@@ -84,6 +86,7 @@ class Rules extends \lithium\core\ObjectDeprecated {
 				return $request->env('REMOTE_ADDR') == $options['ip'];
 			}
 		);
+		$this->_autoConfig($this->_config, $this->_autoConfig);
 	}
 
 	/**
