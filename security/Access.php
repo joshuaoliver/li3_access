@@ -97,8 +97,8 @@ class Access extends \lithium\core\Adaptable {
 				'params' => isset($params->params) ? $params->params : array()
 			);
 		}
-		$filter = function($self, $params) use ($name) {
-			return $self::adapter($name)->check(
+		$filter = function($params) use ($name) {
+			return $this::adapter($name)->check(
 				$params['user'], $params['params'], $params['options']
 			);
 		};
