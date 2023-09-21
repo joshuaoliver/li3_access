@@ -103,7 +103,7 @@ class Access extends \lithium\core\Adaptable {
 			);
 		};
 		$params = compact('user', 'params', 'options');
-		return Filters::run($this, __FUNCTION__, $params, $filter, (array) $config['filters']);
+		return Filters::run(get_called_class(), __FUNCTION__, $params, $filter, (array) $config['filters']);
 	}
 }
 
